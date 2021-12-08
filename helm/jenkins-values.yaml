@@ -352,7 +352,7 @@ controller:
                 }
                 steps {
                   jobDsl {
-                    targets 'jenkins/jobs/*.groovy'
+                    targets 'jenkins-jobs/*.groovy'
                   }
                 }
               }
