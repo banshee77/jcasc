@@ -13,7 +13,7 @@ pipelineJob("jcasc/simple-node-js-react-npm-app-dev") {
         cpsScm {
             scm {
                 git  {
-                    branch('*/main')
+                    branch('*/master')
                     remote {
                         credentials 'git-credentials'
                         url('https://github.com/banshee77/simple-node-js-react-npm-app.git')
