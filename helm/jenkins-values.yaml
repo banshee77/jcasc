@@ -332,6 +332,30 @@ controller:
                 name: "kubernetes"
                 namespace: "jenkins"
                 serverUrl: "https://kubernetes.docker.internal:6443"                                
+      seed-jobs: |
+        jobs:
+          - script: >
+              job('Seed Job') {
+                description('It is a seed Job')
+                logRotator {
+                   numToKeep(500)
+                   daysToKeep(30)
+                }
+                scm {
+                  git {
+                    branch '*/main'
+                    remote {
+                       credentials 'git-credentials'
+                       url 'https://github.com/banshee77/jcasc.git'
+                    }
+                  }
+                }
+                steps {
+                  jobDsl {
+                    targets 'jenkins/jobs/*.groovy'
+                  }
+                }
+              }
     # Ignored if securityRealm is defined in controller.JCasC.configScripts and
     # ignored if controller.enableXmlConfig=true as controller.securityRealm takes precedence
     securityRealm: |-
