@@ -1,6 +1,6 @@
-folder("jcasc-demo") {
+folder("jcasc") {
 }
-pipelineJob("jcasc-demo/demo-svc-dev") {
+pipelineJob("jcasc/simple-node-js-react-npm-app-dev") {
     description("Build and deploy demo service from develop branch on development environment.")
     keepDependencies(false)
     disabled(false)
