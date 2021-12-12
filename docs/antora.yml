@@ -1,5 +1,3 @@
 name: jenkins-configuration-as-code
 title: Jenkins Configuration as Code
 version: '1.0'
-nav:
-- modules/ROOT/nav.adoc
