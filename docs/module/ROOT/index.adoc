@@ -1,0 +1,51 @@
+:project-name: Jenkins Configuration as Code
+:project-handle: jenkins-configuration-as-code
+= {project-name} Documentation
+// Settings:
+:navtitle: Introduction
+:experimental:
+// URIs:
+:uri-helm: https://helm.sh/docs/intro/install/
+
+{project-name} is used for Jenkins deployment with Helm on Kubernetes.
+
+== Helm
+Please install {uri-helm}[Helm] and add jenkins chart to the helm repo
+
+[source]
+helm repo list
+helm repo add jenkins https://charts.jenkins.io 
+helm repo update
+
+
+== Kubernetes
+Create Jenkins workspace in Kubernetes, use Helm to install Jenkins
+
+[source]
+kubectl create namespace jenkins
+kubectl get namespaces
+helm install jenkins jenkins/jenkins -f helm/jenkins-values.yaml -n jenkins
+kubectl logs -f jenkins-0 -c init -n jenkins
+
+
+Check if Pods are up and running
+
+[source]
+kubectl get pods -n jenkins
+
+Get port number for Jenkins NodeIP
+
+[source]
+kubectl get services -n jenkins
+
+Kubernetes secrets enablement
+
+[source]
+kubectl create -f k8s\rbac.yaml -n jenkins
+
+Add Kubernetes secrets for JENKINS. Later please check if secrets are visible in JENKINS UI - Credentials
+
+NOTE: replace GIT user and password
+
+[source]
+kubectl create -f k8s\secrets-jenkins.yaml -n jenkins
