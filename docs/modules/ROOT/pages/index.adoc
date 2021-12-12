@@ -5,9 +5,12 @@
 :navtitle: Introduction
 :experimental:
 // URIs:
+:uri-project: https://github.com/banshee77/jcasc/
 :uri-helm: https://helm.sh/docs/intro/install/
 
-{project-name} is used for Jenkins deployment with Helm on Kubernetes.
+{project-name} project is for Jenkins deployment uisng Helm charts on Kubernetes.
+
+Source code is available {uri-project}[github].  
 
 == Helm
 Please install {uri-helm}[Helm] and add jenkins chart to the helm repo
